@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        width:90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: rgb(34,193,195);
+        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .photo-wrapper{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .img-container {
+        width: 200px; /* Fixed width */
+        height: 300px; /* Fixed height */
+        overflow: hidden; /* Ensures no part of the image spills out */
+        border-radius: 15px; /* Adjust as needed for rounded corners */
+        margin: 10px; /* Space between containers */
+    }
+    .img-container img {
+        width: 100%; /* Make image fill the container */
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the area, may crop if necessary */
+        border-radius: 15px; /* Match container's border-radius */
+    }
+    canvas {
+        border: 1px solid white;
+    }
+</style>
+<body>
+    <div>
+        <h1>Hello! My name is Kelsey!</h1>
+        <p>Dogs, crossfit and traveling are some of my interest!</p>
+        <p>Check out this funny video! Here is the <a href="https://www.youtube.com/watch?v=HUk0hS6WObc" target="_blank">link!</a></p>
+    </div>
+    <div class="photo-wrapper">
+        <div class="img-container">
+            <img src="/assets/kelsey_pizza_queen-v2.jpg" alt="Girl holding pizza sign">
+        </div>
+        <div class="img-container">
+            <img src="/assets/kelsey_baby.jpg" alt="Baby picture">
+        </div>
+    </div>
+    <canvas width="400" height="400" id="game"></canvas>
+    <script>
+    var canvas = document.getElementById('game');
+    
+    var context = canvas.getContext('2d');
+
+    // the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
+    // (e.g. 16 * 25 = 400)
+    var grid = 16;
+    var count = 0;
+
+    var snake = {
+    x: 160,
+    y: 160,
+
+    // snake velocity. moves one grid length every frame in either the x or y direction
+    dx: grid,
+    dy: 0,
+
+    // keep track of all grids the snake body occupies
+    cells: [],
+
+    // length of the snake. grows when eating an apple
+    maxCells: 4
+    };
+    var apple = {
+    x: 320,
+    y: 320
+    };
+
+    // get random whole numbers in a specific range
+    // @see https://stackoverflow.com/a/1527820/2124254
+    function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    // game loop
+    function loop() {
+    requestAnimationFrame(loop);
+
+    if (++count < 4) {
+        return;
+    }
+
+    count = 0;
+    context.clearRect(0,0,canvas.width,canvas.height);
+
+    // move snake
+    snake.x += snake.dx;
+    snake.y += snake.dy;
+
+    // wrap snake position
+    if (snake.x < 0) {
+        snake.x = canvas.width - grid;
+    } else if (snake.x >= canvas.width) {
+        snake.x = 0;
+    }
+    if (snake.y < 0) {
+        snake.y = canvas.height - grid;
+    } else if (snake.y >= canvas.height) {
+        snake.y = 0;
+    }
+
+    snake.cells.unshift({x: snake.x, y: snake.y});
+    if (snake.cells.length > snake.maxCells) {
+        snake.cells.pop();
+    }
+
+    // draw apple
+    context.fillStyle = 'red';
+    context.fillRect(apple.x, apple.y, grid-1, grid-1);
+
+    // draw snake
+    context.fillStyle = 'green';
+    snake.cells.forEach(function(cell, index) {
+        context.fillRect(cell.x, cell.y, grid-1, grid-1); // Adjust for grid effect
+
+        // snake ate apple
+        if (cell.x === apple.x && cell.y === apple.y) {
+            snake.maxCells++;
+            apple.x = getRandomInt(0, 25) * grid;
+            apple.y = getRandomInt(0, 25) * grid;
+        }
+
+        for (var i = index + 1; i < snake.cells.length; i++) {
+            if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                // Reset game
+                snake.x = 160;
+                snake.y = 160;
+                snake.cells = [];
+                snake.maxCells = 4;
+                snake.dx = grid;
+                snake.dy = 0;
+
+                apple.x = getRandomInt(0, 25) * grid;
+                apple.y = getRandomInt(0, 25) * grid;
+            }
+        }
+    });
+
+    // Display the score
+    context.fillStyle = 'black'; // Text color
+    context.font = '24px Arial'; // Text size and font
+    context.fillText('Score: ' + (snake.maxCells - 4), 10, 30); // Position and text to display
+}
+
+    // listen to keyboard events to move the snake
+    document.addEventListener('keydown', function(e) {
+    // prevent snake from backtracking on itself by checking that it's
+    // not already moving on the same axis (pressing left while moving
+    // left won't do anything, and pressing right while moving left
+    // shouldn't let you collide with your own body)
+
+    // left arrow key
+    if (e.which === 37 && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+    }
+    // up arrow key
+    else if (e.which === 38 && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+    }
+    // right arrow key
+    else if (e.which === 39 && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+    }
+    // down arrow key
+    else if (e.which === 40 && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+    }
+    });
+
+    // start the game
+    requestAnimationFrame(loop);
+    </script>
+</body>
+</html>
