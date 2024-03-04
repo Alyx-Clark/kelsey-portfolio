@@ -9,12 +9,16 @@
     body{
         width:90%;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         flex-wrap: wrap;
         justify-content: center;
         background: rgb(34,193,195);
         background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
         background-repeat: no-repeat;
         background-size: cover;
+        min-height: calc(100vh - 60px);
+        margin:30px auto;
     }
     .photo-wrapper{
         display:flex;
@@ -51,7 +55,9 @@
             <img src="https://personal-projects.nyc3.digitaloceanspaces.com/kelsey/kelsey_baby.jpg" alt="Baby picture">
         </div>
     </div>
-    <canvas width="400" height="400" id="game"></canvas>
+    <div>
+        <canvas width="400" height="400" id="game"></canvas>
+    </div>
     <script>
     var canvas = document.getElementById('game');
     
@@ -163,6 +169,10 @@
     // not already moving on the same axis (pressing left while moving
     // left won't do anything, and pressing right while moving left
     // shouldn't let you collide with your own body)
+
+    if ([37, 38, 39, 40].includes(e.which)) {
+        e.preventDefault(); // Prevent the default arrow key action (scrolling)
+    }
 
     // left arrow key
     if (e.which === 37 && snake.dx === 0) {
