@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">Computer help comic</title>
+  <desc id="desc">Two guys struggle with a computer, a girl shows them how to drag and drop an image, and the older guy asks, can you do that for me?</desc>
+  <defs>
+    <style>
+      .panel { fill: #fff6df; stroke: #111; stroke-width: 6; }
+      .wall { fill: #f0d7a9; }
+      .desk { fill: #8d5835; stroke: #111; stroke-width: 4; }
+      .screen { fill: #3f5568; stroke: #111; stroke-width: 5; }
+      .screen-light { fill: #dff5ff; stroke: #111; stroke-width: 3; }
+      .skin { fill: #f1b884; stroke: #111; stroke-width: 4; }
+      .hair-dark { fill: #352016; }
+      .hair-gray { fill: #c8c4bd; stroke: #111; stroke-width: 3; }
+      .shirt-blue { fill: #3f7fb9; stroke: #111; stroke-width: 4; }
+      .shirt-purple { fill: #7b4ea3; stroke: #111; stroke-width: 4; }
+      .shirt-green { fill: #3da66d; stroke: #111; stroke-width: 4; }
+      .line { fill: none; stroke: #111; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .caption { font: 700 24px Arial, sans-serif; fill: #111; }
+      .bubble-text { font: 700 25px Arial, sans-serif; fill: #111; }
+    </style>
+  </defs>
+
+  <rect x="3" y="3" width="1074" height="354" rx="8" fill="#fff" stroke="#111" stroke-width="6"/>
+
+  <g transform="translate(12 12)">
+    <rect class="panel" x="0" y="0" width="336" height="336"/>
+    <rect class="wall" x="4" y="4" width="328" height="205"/>
+    <rect class="desk" x="34" y="230" width="268" height="62" rx="8"/>
+    <rect class="screen" x="42" y="116" width="118" height="92" rx="8"/>
+    <rect x="86" y="208" width="30" height="26" fill="#333" stroke="#111" stroke-width="4"/>
+    <rect x="52" y="234" width="94" height="16" fill="#333" stroke="#111" stroke-width="4"/>
+    <rect x="176" y="246" width="58" height="22" rx="6" fill="#273746" stroke="#111" stroke-width="4"/>
+    <circle cx="278" cy="245" r="18" fill="#256d85" stroke="#111" stroke-width="4"/>
+    <path class="thin" d="M264 236h28"/>
+    <text class="caption" x="24" y="48">Where did the image go?</text>
+
+    <circle class="skin" cx="190" cy="161" r="34"/>
+    <path class="hair-gray" d="M160 145c12-34 56-39 72-10-20-10-44-6-72 10z"/>
+    <path class="line" d="M178 162h-10m45 0h-10m-20 28c12 6 25 4 35-6"/>
+    <path class="shirt-blue" d="M147 312c8-68 80-70 96 0z"/>
+    <path class="line" d="M162 226c-22 4-34 19-42 41M222 223c18 6 31 19 43 40"/>
+
+    <circle class="skin" cx="268" cy="170" r="32"/>
+    <path class="hair-dark" d="M237 158c8-32 54-38 70-8 5 10 2 23-5 32-11-24-40-33-65-24z"/>
+    <path class="line" d="M258 171h-10m43 0h-10m-10 25c10 3 21 1 28-7"/>
+    <path class="shirt-purple" d="M225 312c6-63 77-67 98 0z"/>
+    <path class="line" d="M293 122c17 9 25 25 20 44"/>
+  </g>
+
+  <g transform="translate(372 12)">
+    <rect class="panel" x="0" y="0" width="336" height="336"/>
+    <rect class="wall" x="4" y="4" width="328" height="205"/>
+    <rect class="desk" x="36" y="236" width="268" height="54" rx="8"/>
+    <rect class="screen-light" x="68" y="104" width="145" height="104" rx="8"/>
+    <rect x="92" y="127" width="56" height="38" fill="#69a8e8" stroke="#111" stroke-width="3"/>
+    <path d="M98 158l18-20 14 14 9-10 17 22z" fill="#6abf69" stroke="#111" stroke-width="2"/>
+    <rect x="154" y="132" width="40" height="52" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="7 6"/>
+    <path class="line" d="M143 150c34 2 54 13 62 34"/>
+    <path d="M199 169l20 22-27 1z" fill="#111"/>
+    <text class="caption" x="32" y="48">Drag. Drop. Done.</text>
+
+    <circle class="skin" cx="252" cy="122" r="34"/>
+    <path class="hair-dark" d="M221 116c6-46 67-52 77 3 7 36-11 71-20 96-18-17-59-18-75 0 15-31 7-68 18-99z"/>
+    <path class="line" d="M243 122h-9m42 0h-9m-17 24c14 7 27 2 34-10"/>
+    <path class="shirt-green" d="M204 312c9-89 88-92 111 0z"/>
+    <path class="line" d="M221 207c-32 12-58 23-92 26M291 201c24 16 38 33 49 58"/>
+
+    <circle class="skin" cx="50" cy="211" r="26"/>
+    <path class="hair-gray" d="M28 198c9-22 38-27 51-8-17-5-33-2-51 8z"/>
+    <path class="shirt-blue" d="M15 312c5-52 62-58 88 0z"/>
+    <circle class="skin" cx="291" cy="220" r="24"/>
+    <path class="hair-dark" d="M267 209c8-26 42-29 54-5-17-8-34-6-54 5z"/>
+    <path class="shirt-purple" d="M251 312c6-47 58-53 84 0z"/>
+  </g>
+
+  <g transform="translate(732 12)">
+    <rect class="panel" x="0" y="0" width="336" height="336"/>
+    <rect class="wall" x="4" y="4" width="328" height="205"/>
+    <rect class="desk" x="36" y="244" width="264" height="48" rx="8"/>
+    <rect class="screen" x="67" y="178" width="100" height="72" rx="8"/>
+
+    <path d="M72 28c8-18 31-24 54-24h112c45 0 77 27 77 65s-32 66-77 66h-82l-43 38 10-42c-32-10-54-34-54-62 0-15 1-28 3-41z" fill="#fff" stroke="#111" stroke-width="5"/>
+    <text class="bubble-text" x="98" y="56">can you do that</text>
+    <text class="bubble-text" x="141" y="89">for me?!</text>
+
+    <circle class="skin" cx="94" cy="177" r="35"/>
+    <path class="hair-gray" d="M62 162c12-35 60-40 76-10-24-10-47-7-76 10z"/>
+    <path class="line" d="M82 175h-10m45 0h-10m-22 30c18 10 38 4 48-12"/>
+    <path class="shirt-blue" d="M41 312c9-70 84-74 111 0z"/>
+    <path class="line" d="M58 234c-27 12-39 29-48 58M127 230c23 11 40 29 55 58"/>
+
+    <circle class="skin" cx="190" cy="190" r="31"/>
+    <path class="hair-dark" d="M160 179c8-29 50-35 66-8 5 9 3 21-4 31-11-21-36-31-62-23z"/>
+    <path class="line" d="M181 190h-9m41 0h-9m-10 24c11 4 22 0 28-8"/>
+    <path class="shirt-purple" d="M145 312c7-61 75-67 97 0z"/>
+
+    <circle class="skin" cx="274" cy="178" r="32"/>
+    <path class="hair-dark" d="M244 171c5-39 57-45 67-1 7 30-8 58-18 78-15-16-46-15-63 0 12-25 6-54 14-77z"/>
+    <path class="line" d="M266 177h-9m42 0h-9m-18 25c13 7 27 1 34-9"/>
+    <path class="shirt-green" d="M226 312c7-63 75-69 97 0z"/>
+    <path class="line" d="M246 237c-24 11-38 28-49 52M299 234c15 11 26 27 35 50"/>
+  </g>
+</svg>
