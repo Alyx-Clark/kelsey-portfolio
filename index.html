@@ -38,12 +38,26 @@
         object-fit: cover; /* Ensures the image covers the area, may crop if necessary */
         border-radius: 15px; /* Match container's border-radius */
     }
+    .comic-strip {
+        width: min(100%, 1080px);
+        margin: 28px 0;
+    }
+    .comic-strip img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 4px solid #111;
+        box-shadow: 6px 6px 0 #111;
+    }
     canvas {
         border: 1px solid white;
     }
     @media(max-width:500px){
         body{
             width:100%;
+        }
+        .comic-strip {
+            width: calc(100% - 24px);
         }
     }
 </style>
@@ -61,6 +75,9 @@
             <img src="assets/kelsey_baby.jpg" alt="Baby picture">
         </div>
     </div>
+    <figure class="comic-strip">
+        <img src="assets/computer-help-comic.jpg" alt="Three-panel comic where two guys struggle with a computer, a girl demonstrates dragging and dropping an image, and the older guy says, can you do that for me?!">
+    </figure>
     <div>
         <canvas width="400" height="400" id="game"></canvas>
     </div>
